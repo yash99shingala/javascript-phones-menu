@@ -1,0 +1,234 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col-md-1">
+            <button onclick="viewAllRecord()" class="btn btn-primary">All</button>
+        </div>
+        <div class="col-md-1">
+            <button onclick="iphoneData()" class="btn btn-primary">i phone</button>
+        </div>
+        <div class="col-md-1">
+            <button onclick="samsangData()" class="btn btn-primary">samsang</button>
+        </div>
+        <div class="col-md-1">
+            <button onclick="vivoData()" class="btn btn-primary">vivo</button>
+        </div>
+        <div class="col-md-1">
+            <button onclick="oppoData()" class="btn btn-primary">oppo</button>
+        </div>
+    </div>
+    <div class="row" id="allrecord">
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    let data = [
+        {
+            name: "iphone XR",
+            price: "₹30,000",
+            image: "https://cdn.shopify.com/s/files/1/0022/6728/3545/products/iPhone_Xr_-_Black.png?v=1578475466",
+            category: "iphone"
+        },
+        {
+            name: "iphone Xs",
+            price: "₹20,000",
+            image: "https://degsmfan.nl/images/parts_smartphone/original/refurbished-iphone-xs-goud-1.jpg",
+            category: "iphone"
+        },
+
+        {
+            name: "iphone 11",
+            price: "₹60,000,",
+            image: "https://assets.onbuy.com/i19/product/fe28b195df044019b59ec37659bb4939-l28998178/unlocked-128gb-apple-iphone-11-purple.jpg",
+            category: "iphone"
+        },
+        {
+            name: "iphone 12",
+            price: "₹70,000",
+            image: "https://d28i4xct2kl5lp.cloudfront.net/product_images/None_6bbe58a2-f5ff-4f5b-b21f-d3f18c405463.jpg",
+            category: "iphone"
+        },
+        {
+            name: "iphone 13",
+            price: "₹80,000",
+            image: "https://tse2.mm.bing.net/th?id=OIP.NDxxbZL7x60N9emjBdaXQwHaHa&pid=Api&P=0",
+            category: "iphone"
+        },
+        {
+            name: "samsang s20",
+            price: "₹50,000",
+            image: "https://tse4.mm.bing.net/th?id=OIP.NEDslOnH_6M7lL2Ea-9rewHaKS&pid=Api&P=0",
+            category: "samsang"
+        },
+        {
+            name: "samsang M31",
+            price: "₹43,000",
+            image: "https://jujukart.com/wp-content/uploads/2020/12/61J4iC0l4yL._SL1500_-1.jpg",
+            category: "samsang"
+        },
+        {
+            name: "vivo V17 pro",
+            price: "₹60,000",
+            image: "https://i.pinimg.com/originals/a6/92/c8/a692c8facb96a6ad159d54bb344023e5.jpg",
+            category: "vivo"
+        },
+        {
+            name: "vivo V21",
+            price: "₹70,000",
+            image: "https://tse3.mm.bing.net/th?id=OIP.uHLYd9P75nmH8ulacs7sxAHaI7&pid=Api&P=0",
+            category: "vivo"
+        },
+        {
+            name: "vivo Y31S",
+            price: "₹74,000",
+            image: "https://www.4gltemall.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/v/i/vivo_y31s_5g_2_.jpg",
+            category: "vivo"
+        },
+        {
+            name: "vivo X30",
+            price: "₹65,000",
+            image: "https://www.4gltemall.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/v/i/vivo_x30_5g_phone_5_.jpg",
+            category: "vivo"
+        },
+        {
+            name: "vivo Nex3S",
+            price: "₹45,000",
+            image: "https://www.dhresource.com/0x0s/f2-albu-g9-M00-E5-F5-rBVaWF5x5-uAIabjAAQjJ2GqvX0550.jpg/original-vivo-nex-3s-5g-mobile-phone-12gb.jpg",
+            category: "vivo"
+        },
+        {
+            name: "OPPO A55",
+            price: "₹45,000",
+            image: "https://www.myfixguide.com/wp-content/uploads/2021/01/oppo-a55-2.png",
+            category: "OPPO"
+        },
+        {
+            name: "OPPO K7x",
+            price: "₹50,000",
+            image: "https://cdn.shopify.com/s/files/1/0399/5231/8620/products/oppo-k7x-5g-black_720x720@2x.jpg?v=1604644384",
+            category: "OPPO"
+        },
+        
+        
+        
+
+    ];
+
+
+    viewAllRecord();
+    function viewAllRecord() {
+        let tbl = "";
+        data.map((val) => {
+            tbl += `
+                <div class="col-md-4 pb-4">
+                    <div class="card">
+                        <img src="${val.image}" style="height:500px;object-fit:contain" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">${val.name}</h5>
+                        <p class="card-text">${val.price}</p>
+                        <a href="#" class="btn btn-primary">by now  </a>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+
+    function iphoneData() {
+        let tbl = "";
+        data.map((val) => {
+
+            if (val.category == "iphone") {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:500px;object-fit:contain" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn btn-primary">Order</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+
+    function samsangData() {
+        let tbl = "";
+        data.map((val) => {
+
+            if (val.category == "samsang") {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}"style="height:500px;object-fit:contain"class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn btn-primary">by now</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+
+    function vivoData() {
+        let tbl = "";
+        data.map((val) => {
+            if (val.category == "vivo") {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:500px;object-fit:contain" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn btn-primary">by now</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+
+    function oppoData() {
+        let tbl = "";
+        data.map((val) => {
+
+            if (val.category == "OPPO") {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" style="height:500px;object-fit:contain" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn btn-primary">Order</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+
+        })
+        document.getElementById('allrecord').innerHTML = tbl;
+    }
+
+
+
+
+</script>
